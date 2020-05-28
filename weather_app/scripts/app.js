@@ -17,7 +17,7 @@ const updteUI = () =>{
       </div>`
 
       //update night and day images
-      const iconsrc = `image/icons/${weather.WeatherIcon}.svg`
+      const iconsrc = `img/icons/${weather.WeatherIcon}.svg`
       icon.setAttribute('src',iconsrc)
       let timsrc = null;
       if (weather.IsDayTime){
@@ -25,7 +25,7 @@ const updteUI = () =>{
       }else{
           timesrc = 'img/night.svg';
       }
-      time.setAttribute('src', 'timesrc')
+      time.setAttribute('src', timesrc)
 
       // remove the d-none class if present
       if(card.classList.contains('d-none')){
@@ -40,6 +40,9 @@ const updateCity = async (city) =>{
     return{
         cityDets:cityDets,
         weather:weather
+        //we could write this like this 
+        //{cityDetails,weather}. This is object short hand notation
+        // 
     }
 }
 
@@ -50,8 +53,8 @@ cityForm.addEventListener('submit', e =>{
     // get city value
     const city = cityForm.city.value.trim()
     cityForm.reset()
-    //update ui with city info
+    //update ui with new city info
     updateCity(city)
-    .then(data => console.log(data))
+    .then(data => updateUI(data))
     .catch(err=> console.log('err'))
 })
