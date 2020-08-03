@@ -2,7 +2,7 @@ import React from "react";
 import{Link} from "react-router-dom"
 
 const NavBar = () =>(
-    <nav>
+    <nav className="bg-dark">
         <ul className= "d-flex justify-content-center " style={{listStyleType:"none"}}>
             <li className= "mx-3">
                 <Link to="/">Home</Link>
