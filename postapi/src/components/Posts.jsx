@@ -1,31 +1,16 @@
 import React, { Component } from 'react'
+import {fetchPosts} from "../components/actions/postActions"
 import {connect} from "react-redux"
-
-const mapStateToProps = (state)=>state
-const mapDispatchToProps = (dispatch)=>({
-    fetchPost: (posts)=>
-
-    dispatch({
-        type: "FETCH_POSTS",
-        payload: posts
-       
-    }),
-    fetchPosts: async ()=> {
-        const posts = await fetch("https://jsonplaceholder.typicode.com/posts")
-        .then(res => res.json())
-        .then(posts => 
-        dispatch({
-            type:"FETCH_POSTS",
-            payload:posts
-        })
-
-            )
-    }
-})
-
+import PropTypes from "prop-types"
 
 
 class Posts extends Component {
+
+    componentDidMount (){
+        this.props.fetchPosts();
+    }
+
+    
 
     // state = {
     //     posts:[]
@@ -59,7 +44,14 @@ class Posts extends Component {
     }
 }
 
+const mapStateToProps = (state)=> state
+
+Posts.PropTypes= {
+    fetchPosts: PropTypes.func.isRequired,
+    Posts:PropTypes.array.isRequired,
+    newPost:PropTypes.object
+}
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps) (Posts)
+export default connect(mapStateToProps,{fetchPosts}) (Posts)
