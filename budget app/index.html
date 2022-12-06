@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Budget App</title>
+</head>
+<body>
+    <div class="budget-container">
+        <h1>Available budget in september 2016:</h1>
+        <div class="total-budget"></div>
+        <div class="income">
+            <span>Income</span>
+           <span class="income-val"></span>
+        </div>
+        <div class="expenses">
+            <span>Expenses</span>
+           <span class="expense-val"></span>
+        </div>
+
+    </div>
+
+    <div class="ui-container">
+        <form class="form-control">
+            <select>
+              <option value="+">+</option>
+              <option value="-">-</option>
+            </select>
+            <input type="text" placeholder="Add description" id="description">
+            <input type="number"  id="number" placeholder="value">
+            <button class="btn">ok</button>
+           </form>
+
+           <div class="income_expenses">
+            <div class="income-ui">
+                <h1>income</h1>
+                <ul class="income-container">
+                
+                </ul>
+            </div>
+            <div class="expense-ui">
+                <h1>expense</h1>
+                <ul class="expense-container">
+                   
+                </ul>
+            </div>
+           </div>
+    </div>
+  
+    <script src="script.js"></script>
+</body>
+</html>
